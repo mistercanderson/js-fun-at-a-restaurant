@@ -10,7 +10,9 @@ class Chef {
     return `Hello, ${name}!`
   };
   checkForFood(foodItem) {
-    if (this.restaurant.menus.breakfast.includes(foodItem)) {
+    if (this.restaurant.menus.breakfast.includes(foodItem)
+    || this.restaurant.menus.lunch.includes(foodItem)
+    || this.restaurant.menus.dinner.includes(foodItem)) {
       return `Yes, we're serving ${foodItem.name} today!`
     }
     return `Sorry, we aren't serving ${foodItem.name} today.`
