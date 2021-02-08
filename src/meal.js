@@ -12,11 +12,10 @@ function createMenuItem(name, price, type) {
 
 
 function addIngredients(item, arr) {
-  var ingredients = arr;
-  if (!ingredients.includes(item)) {
-    ingredients.push(item);
+  if (!arr.includes(item)) {
+    arr.push(item);
   }
-  return ingredients;
+  return arr;
 };
 
 function formatPrice(price) {
