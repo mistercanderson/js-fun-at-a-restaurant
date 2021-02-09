@@ -1,4 +1,4 @@
-var createRestaurant = (name) => {
+function createRestaurant(name) {
   var restaurant = {};
   restaurant.name = name;
   restaurant.menus = {};
@@ -8,13 +8,13 @@ var createRestaurant = (name) => {
   return restaurant;
 };
 
-var addMenuItem = (restaurant, menuItem) => {
-  if (menuItem.type === 'breakfast' && !restaurant.menus.breakfast.includes(menuItem)) {
-    restaurant.menus.breakfast.push(menuItem);
-  } else if (menuItem.type === 'lunch' && !restaurant.menus.lunch.includes(menuItem)) {
-    restaurant.menus.lunch.push(menuItem);
-  } else if (menuItem.type === 'dinner' && !restaurant.menus.dinner.includes(menuItem)) {
-    restaurant.menus.dinner.push(menuItem);
+function addMenuItem(restaurant, menuItem) {
+  var menuTypes = Object.getOwnPropertyNames(restaurant.menus);
+  for (var i = 0; i < menuTypes.length; i++) {
+    if (menuItem.type === menuTypes[i] &&
+        !restaurant.menus[menuTypes[i]].includes(menuItem)) {
+      restaurant.menus[menuTypes[i]].push(menuItem)
+    }
   }
   return restaurant
 };
